@@ -1,12 +1,13 @@
 import PropTypes from "prop-types";
 import ContactItemBody from "./ContactItemBody";
 import ContactItemImage from "./ContactItemImage";
-
-function ContactItem({ imageUrl, name, tag }) {
+import DeleteButton from "./DeleteButton";
+function ContactItem({ imageUrl, name, tag, id, onDelete }) {
   return (
     <div className="contact-item">
       <ContactItemImage imageUrl={imageUrl} />
       <ContactItemBody name={name} tag={tag} />
+      <DeleteButton id={id} onDelete={onDelete} />
     </div>
   );
 }
@@ -15,6 +16,8 @@ ContactItem.propTypes = {
   name: PropTypes.string.isRequired,
   tag: PropTypes.string.isRequired,
   imageUrl: PropTypes.string.isRequired,
+  id: PropTypes.number.isRequired,
+  onDelete: PropTypes.func.isRequired,
 };
 
 export default ContactItem;
